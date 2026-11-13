@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desi Glow · Lightroom Presets for Indian Skin</title>
+<meta name="description" content="10 Lightroom presets and 5 video LUTs made for Indian skin. Get the Chai Cafe preset free.">
+<meta property="og:title" content="Desi Glow · Lightroom Presets for Indian Skin">
+<meta property="og:description" content="10 presets + 5 video LUTs made for Indian skin. Download the Chai Cafe preset free.">
+<meta property="og:image" content="https://iampaulidrobo.github.io/desiglow/img/og.jpg">
+<meta property="og:url" content="https://iampaulidrobo.github.io/desiglow/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3B2418">
+<link rel="icon" href="favicon.png">
+<style>
+@font-face { font-family: Playfair; src: url(fonts/Playfair.ttf); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: Playfair; src: url(fonts/Playfair-Italic.ttf); font-style: italic; font-weight: 400 900; font-display: swap; }
+@font-face { font-family: Poppins; src: url(fonts/Poppins-Regular.ttf); font-weight: 400; font-display: swap; }
+@font-face { font-family: Poppins; src: url(fonts/Poppins-SemiBold.ttf); font-weight: 600; font-display: swap; }
+:root { --cream:#F6EDE3; --brown:#3B2418; --gold:#C8923F; --terra:#B5532E; --line:#e6d4c0; --card:#fffaf4; --muted:#6d4f3c; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--brown); font-family: Poppins, system-ui, sans-serif; font-size: 16px; line-height: 1.55; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+.top { background: var(--brown); color: var(--cream); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: Playfair; font-weight: 700; font-size: 20px; }
+.brand img { width: 34px; height: 34px; border-radius: 50%; }
+.ig { font-size: 14px; font-weight: 600; text-decoration: none; color: var(--gold); }
+.hero { padding: 36px 0 28px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 32px; align-items: center; }
+@media (max-width: 800px) { .hero { grid-template-columns: 1fr; padding-top: 24px; gap: 22px; } }
+h1 { font-family: Playfair; font-weight: 800; font-size: clamp(40px, 8vw, 64px); line-height: 1.02; margin: 0; }
+h1 em { display: block; font-weight: 500; color: var(--terra); font-size: .52em; margin-top: 10px; }
+.lead { font-size: 17px; color: var(--muted); margin: 16px 0 22px; max-width: 34em; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 14px 24px; font-weight: 600; font-size: 15px; text-decoration: none; border: 0; cursor: pointer; }
+.btn.primary { background: var(--brown); color: var(--cream); }
+.btn.gold { background: var(--gold); color: #fff; }
+.btn.ghost { border: 1.5px solid var(--brown); color: var(--brown); background: transparent; }
+.ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+.small { font-size: 13px; color: var(--muted); margin-top: 10px; }
+.ba { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 5; background: #2a1a12; user-select: none; touch-action: pan-y; }
+.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba .after { clip-path: inset(0 0 0 50%); }
+.ba .bar { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: var(--cream); transform: translateX(-1.5px); pointer-events: none; }
+.ba .bar::after { content: "‹ ›"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--cream); color: var(--brown); border-radius: 999px; padding: 5px 10px; font-weight: 600; font-size: 13px; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.ba .t { position: absolute; top: 12px; padding: 3px 11px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .06em; pointer-events: none; }
+.ba .t.b { left: 12px; background: rgba(0,0,0,.45); color: #fff; }
+.ba .t.a { right: 12px; background: var(--cream); color: var(--brown); }
+section { padding: 40px 0; }
+h2 { font-family: Playfair; font-size: clamp(28px, 5vw, 38px); margin: 0 0 8px; line-height: 1.15; }
+.sub { color: var(--muted); margin: 0 0 24px; }
+.why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 800px) { .why { grid-template-columns: 1fr; } }
+.why div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.why b { display: block; font-size: 16px; margin-bottom: 4px; }
+.why span { color: var(--muted); font-size: 14.5px; }
+.looks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (min-width: 800px) { .looks { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.look h3 { font-family: Playfair; font-style: italic; font-weight: 600; font-size: 21px; margin: 10px 0 2px; }
+.look h3 small { font-family: Poppins; font-style: normal; font-size: 12px; color: var(--gold); margin-right: 6px; font-weight: 600; }
+.look p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.look.free { position: relative; }
+.badge { position: absolute; z-index: 2; left: 10px; bottom: 10px; background: var(--gold); color: #fff; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; pointer-events: none; }
+.pack { background: var(--brown); color: var(--cream); border-radius: 22px; padding: 30px 24px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: center; }
+@media (max-width: 800px) { .pack { grid-template-columns: 1fr; } }
+.pack h2 { color: var(--cream); }
+.pack ul { margin: 14px 0 0; padding: 0; list-style: none; }
+.pack li { padding: 6px 0 6px 28px; position: relative; }
+.pack li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+.price { text-align: center; background: rgba(246,237,227,.08); border: 1px solid rgba(246,237,227,.2); border-radius: 16px; padding: 22px 16px; }
+.price .now { font-family: Playfair; font-size: 52px; font-weight: 800; color: var(--gold); line-height: 1; }
+.price s { opacity: .7; margin-left: 6px; }
+.price .soon { display: inline-block; margin: 12px 0 14px; background: var(--cream); color: var(--brown); font-weight: 600; font-size: 13px; padding: 4px 12px; border-radius: 999px; }
+.price .btn { width: 100%; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; counter-reset: s; }
+@media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+.steps div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 18px 58px; position: relative; font-size: 14.5px; }
+.steps div::before { counter-increment: s; content: counter(s); position: absolute; left: 16px; top: 16px; width: 30px; height: 30px; border-radius: 50%; background: var(--terra); color: #fff; font-weight: 600; display: grid; place-items: center; }
+details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+summary { font-weight: 600; cursor: pointer; }
+details p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
+footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 13px; color: var(--muted); }
+footer p { margin: 6px 0; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="img/logo.png" alt="">Desi Glow</a>
+    <a class="ig" href="https://instagram.com/desiglow.presets" rel="noopener">@desiglow.presets</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Desi Glow<em>Lightroom presets made for Indian skin</em></h1>
+      <p class="lead">Most presets are made for pale skin and turn ours grey, orange or green. Desi Glow keeps skin warm and real, for shaadi season, diyas, pahadi trips, Goa, chai dates and city nights.</p>
+      <div class="ctas">
+        <a class="btn primary" href="free/Desi-Glow-Free-Chai-Cafe.zip" download>Get Chai Cafe free ☕</a>
+        <a class="btn ghost" href="#looks">See all 10 looks</a>
+      </div>
+      <p class="small">Free download, no sign-up. Works in the free Lightroom app on Android &amp; iPhone.</p>
+    </div>
+    <div class="ba" data-ba>
+      <img src="img/02-before.jpg" alt="Bride photo before the Shaadi Gold preset">
+      <img class="after" src="img/02-after.jpg" alt="Bride photo after the Shaadi Gold preset">
+      <span class="t b">BEFORE</span><span class="t a">SHAADI GOLD</span>
+      <div class="bar"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+    </div>
+  </div>
+
+  <section>
+    <div class="why">
+      <div><b>Made for our skin</b><span>Reds and oranges are tuned so brown skin stays warm and clean, never ashy or orange.</span></div>
+      <div><b>One tap, done</b><span>No editing skills needed. Apply, nudge brightness if you like, post.</span></div>
+      <div><b>Photos and Reels</b><span>Matching video LUTs so your Reels look like your photos.</span></div>
+    </div>
+  </section>
+
+  <section id="looks">
+    <h2>The 10 looks</h2>
+    <p class="sub">Drag across any photo to compare before and after.</p>
+    <div class="looks" id="lookGrid"></div>
+  </section>
+
+  <section>
+    <div class="pack">
+      <div>
+        <h2>The full Desi Glow pack</h2>
+        <ul>
+          <li>10 Lightroom presets (free mobile app + desktop)</li>
+          <li>5 video LUTs for Reels: VN, CapCut PC, Premiere, DaVinci, Final Cut</li>
+          <li>Step-by-step install guide</li>
+          <li>Use on your own photos and client work</li>
+        </ul>
+      </div>
+      <div class="price">
+        <div><span class="now">₹199</span><s>₹299</s></div>
+        <div class="soon">Launching soon</div>
+        <a class="btn gold" href="https://instagram.com/desiglow.presets" rel="noopener">Follow to get it first</a>
+        <p class="small" style="color:#e9d8c6">Launch price for the first week only.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Install in 2 minutes</h2>
+    <p class="sub">Works on any phone with the free Lightroom app.</p>
+    <div class="steps">
+      <div>Download the zip and unzip it (Files app › Extract).</div>
+      <div>In Lightroom, add the <b>.dng</b> file as a photo and open it.</div>
+      <div>Tap <b>⋮ › Create Preset</b>. Now apply it to any photo.</div>
+    </div>
+    <p class="small"><a href="free/How-to-install.pdf">Full install guide (PDF)</a>, including desktop Lightroom and video LUTs.</p>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details><summary>Do I need paid Lightroom?</summary><p>No. The presets work in the free Lightroom mobile app on Android and iPhone. Desktop Lightroom and Camera Raw use the XMP files.</p></details>
+    <details><summary>Will it look exactly like the samples?</summary><p>Every photo has different light. Apply the preset, then adjust Exposure and Temp a little until the skin looks right. Newer Lightroom versions also have an Amount slider.</p></details>
+    <details><summary>Do the video LUTs work in CapCut on my phone?</summary><p>Use VN on your phone (Filter › import .cube). CapCut supports custom LUTs on PC and Mac.</p></details>
+    <details><summary>Need help installing?</summary><p>DM us on Instagram <a href="https://instagram.com/desiglow.presets">@desiglow.presets</a>.</p></details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Desi Glow Presets. Free sample for personal and client use; please don't re-share the files.</p>
+    <p>Demo photos from Unsplash by Prateek Jaiswal, Alok Verma, Amish Thakkar, Udayaditya Barua, Sajal Das, Ishvani Hans, Parth Vyas, Rushikesh Sonkusale, Andrea Leopardi and Aman Upadhyay, edited with the presets.</p>
+  </div>
+</footer>
+
+<script>
+const LOOKS = [
+  ["01", "Desi Glow", "Soft warm glow, clean skin. Everyday portraits."],
+  ["02", "Shaadi Gold", "Golden highlights, rich reds. Weddings."],
+  ["03", "Haldi Mehendi", "Bright, sunny, olive greens. Day functions."],
+  ["04", "Diwali Diya", "Deep gold diya light. Festival nights."],
+  ["05", "Pahadi Teal", "Teal skies, crisp detail. Mountains."],
+  ["06", "Goa Sunset", "Peach skies, turquoise water. Beaches."],
+  ["07", "Monsoon Mood", "Cool, muted, soft grain. Rainy days."],
+  ["08", "Chai Cafe", "Warm brown matte. Cafes and food."],
+  ["09", "Gali Film", "Faded film look with grain. Street and travel."],
+  ["10", "Mumbai Nights", "Teal shadows, glowing lights. City nights."]
+];
+const grid = document.getElementById("lookGrid");
+grid.innerHTML = LOOKS.map(([k, n, d]) => `
+  <div class="look${k === "08" ? " free" : ""}">
+    <div class="ba" data-ba>
+      <img src="img/${k}-before.jpg" alt="${n}: before" loading="lazy">
+      <img class="after" src="img/${k}-after.jpg" alt="${n}: after" loading="lazy">
+      <div class="bar"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare ${n} before and after">
+      ${k === "08" ? '<span class="badge">FREE</span>' : ""}
+    </div>
+    <h3><small>${k}</small>${n}</h3>
+    <p>${d}</p>
+  </div>`).join("");
+document.querySelectorAll("[data-ba]").forEach(el => {
+  const r = el.querySelector("input"), a = el.querySelector(".after"), bar = el.querySelector(".bar");
+  const set = v => { a.style.clipPath = `inset(0 0 0 ${v}%)`; bar.style.left = v + "%"; };
+  r.addEventListener("input", () => set(r.value));
+  set(r.value);
+});
+</script>
+</body>
+</html>
