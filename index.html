@@ -83,6 +83,18 @@ h2 { font-family: Playfair; font-size: clamp(28px, 5vw, 38px); margin: 0 0 8px; 
 details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
 summary { font-weight: 600; cursor: pointer; }
 details p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
+.price .now.word { font-size: 46px; letter-spacing: .02em; }
+.qr { background: #fff; border-radius: 14px; padding: 10px; width: 210px; max-width: 100%; margin: 14px auto 10px; }
+.qr svg, .qr img { width: 100%; height: auto; display: block; }
+.upiid { font-size: 14px; display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
+.upiid code { background: rgba(246,237,227,.12); padding: 3px 9px; border-radius: 8px; font-family: inherit; }
+.upiid button { background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; padding: 3px 12px; font: 600 12px Poppins, sans-serif; cursor: pointer; }
+.paysteps { text-align: left; margin: 14px 0; padding-left: 20px; font-size: 14px; color: #e9d8c6; }
+.paysteps li { padding: 3px 0 !important; }
+.paysteps li::before { content: none !important; }
+.btn.light { border: 1.5px solid var(--cream); color: var(--cream); background: transparent; margin-top: 8px; }
+.only-phone { display: none; }
+@media (hover: none) and (pointer: coarse) { .only-phone { display: inline-flex; } }
 footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 13px; color: var(--muted); }
 footer p { margin: 6px 0; }
 </style>
@@ -100,11 +112,11 @@ footer p { margin: 6px 0; }
     <div>
       <h1>Desi Glow<em>Lightroom presets made for Indian skin</em></h1>
       <p class="lead">Most presets are made for pale skin and turn ours grey, orange or green. Desi Glow keeps skin warm and real, for shaadi season, diyas, pahadi trips, Goa, chai dates and city nights.</p>
-      <div class="ctas">
+      <div class="ctas" id="heroCtas">
         <a class="btn primary" href="free/Desi-Glow-Free-Chai-Cafe.zip" download>Get Chai Cafe free ☕</a>
         <a class="btn ghost" href="#looks">See all 10 looks</a>
       </div>
-      <p class="small">Free download, no sign-up. Works in the free Lightroom app on Android &amp; iPhone.</p>
+      <p class="small" id="heroNote">Free download, no sign-up. Works in the free Lightroom app on Android &amp; iPhone.</p>
     </div>
     <div class="ba" data-ba>
       <img src="img/02-before.jpg" alt="Bride photo before the Shaadi Gold preset">
@@ -129,7 +141,7 @@ footer p { margin: 6px 0; }
     <div class="looks" id="lookGrid"></div>
   </section>
 
-  <section>
+  <section id="pack">
     <div class="pack">
       <div>
         <h2>The full Desi Glow pack</h2>
@@ -140,7 +152,7 @@ footer p { margin: 6px 0; }
           <li>Use on your own photos and client work</li>
         </ul>
       </div>
-      <div class="price">
+      <div class="price" id="buy">
         <div><span class="now">₹199</span><s>₹299</s></div>
         <div class="soon">Launching soon</div>
         <a class="btn gold" href="https://instagram.com/desiglow.presets" rel="noopener">Follow to get it first</a>
@@ -171,11 +183,12 @@ footer p { margin: 6px 0; }
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Desi Glow Presets. Free sample for personal and client use; please don't re-share the files.</p>
+    <p>© 2026 Desi Glow Presets. Presets are for your own photos and client work; please don't re-share or resell the files.</p>
     <p>Demo photos from Unsplash by Prateek Jaiswal, Alok Verma, Amish Thakkar, Udayaditya Barua, Sajal Das, Ishvani Hans, Parth Vyas, Rushikesh Sonkusale, Andrea Leopardi and Aman Upadhyay, edited with the presets.</p>
   </div>
 </footer>
 
+<script src="shop.js"></script>
 <script>
 const LOOKS = [
   ["01", "Desi Glow", "Soft warm glow, clean skin. Everyday portraits."],
@@ -197,11 +210,55 @@ grid.innerHTML = LOOKS.map(([k, n, d]) => `
       <img class="after" src="img/${k}-after.jpg" alt="${n}: after" loading="lazy">
       <div class="bar"></div>
       <input type="range" min="0" max="100" value="50" aria-label="Compare ${n} before and after">
-      ${k === "08" ? '<span class="badge">FREE</span>' : ""}
+      ${k === "08" && SHOP.mode !== "free" ? '<span class="badge">FREE</span>' : ""}
     </div>
     <h3><small>${k}</small>${n}</h3>
     <p>${d}</p>
   </div>`).join("");
+// ---- shop: what the hero buttons and the pack box show (set in shop.js) ----
+(function () {
+  const S = window.SHOP || { mode: "soon" };
+  if (S.mode === "upi" && !S.upi) S.mode = "soon";
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const hero = document.getElementById("heroCtas"), note = document.getElementById("heroNote"), buy = document.getElementById("buy");
+  const looksBtn = '<a class="btn ghost" href="#looks">See all 10 looks</a>';
+  const works = "Works in the free Lightroom app on Android &amp; iPhone.";
+  const sampleBtn = `<a class="btn primary" href="${esc(S.sample)}">Get Chai Cafe free ☕</a>`;
+  if (S.mode === "free") {
+    hero.innerHTML = `<a class="btn primary" href="${esc(S.pack)}">Download all 10 free</a>${looksBtn}`;
+    note.innerHTML = "Free for a limited time, no sign-up. " + works;
+    buy.innerHTML = `
+      <div><span class="now word">FREE</span><s>₹${S.was}</s></div>
+      <div class="soon">Free for a limited time</div>
+      <a class="btn gold" href="${esc(S.pack)}">Download all 10 free</a>
+      <p class="small" style="color:#e9d8c6">2.2 MB zip, no sign-up. Liked it? Follow <a href="${esc(S.ig)}">@desiglow.presets</a> and tag us in your edits.</p>`;
+  } else if (S.mode === "upi") {
+    const link = `upi://pay?pa=${encodeURIComponent(S.upi)}&pn=${encodeURIComponent(S.payee || "Desi Glow")}&am=${S.price}.00&cu=INR&tn=${encodeURIComponent("Desi Glow pack")}`;
+    hero.innerHTML = sampleBtn + `<a class="btn gold" href="#pack">Get all 10 · ₹${S.price}</a>`;
+    note.innerHTML = "Chai Cafe is a free download, no sign-up. " + works;
+    buy.innerHTML = `
+      <div><span class="now">₹${S.price}</span>${S.was > S.price ? `<s>₹${S.was}</s>` : ""}</div>
+      <div class="qr" id="qr" aria-label="UPI QR code to pay ₹${S.price}"></div>
+      <div class="upiid">UPI ID <code>${esc(S.upi)}</code><button type="button" id="copyUpi">Copy</button></div>
+      <a class="btn gold only-phone" href="${esc(link)}">Pay ₹${S.price} with a UPI app</a>
+      <ol class="paysteps">
+        <li>Scan the QR and pay ₹${S.price} in any UPI app (GPay, PhonePe, Paytm).</li>
+        <li>Send the payment screenshot to our Instagram DM.</li>
+        <li>We reply with your download link, usually within a few hours.</li>
+      </ol>
+      <a class="btn light" href="${esc(S.dm)}" rel="noopener">Send screenshot on Instagram</a>`;
+    document.getElementById("copyUpi").onclick = e => {
+      navigator.clipboard && navigator.clipboard.writeText(S.upi).then(() => { e.target.textContent = "Copied"; });
+    };
+    const js = document.createElement("script");
+    js.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js";
+    js.onload = () => { const q = qrcode(0, "M"); q.addData(link); q.make(); document.getElementById("qr").innerHTML = q.createSvgTag({ cellSize: 6, margin: 2, scalable: true }); };
+    document.head.appendChild(js);
+  } else {
+    hero.innerHTML = sampleBtn + looksBtn;
+  }
+})();
+
 document.querySelectorAll("[data-ba]").forEach(el => {
   const r = el.querySelector("input"), a = el.querySelector(".after"), bar = el.querySelector(".bar");
   const set = v => { a.style.clipPath = `inset(0 0 0 ${v}%)`; bar.style.left = v + "%"; };
